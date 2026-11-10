@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shabbir Furniture House – Rajnagar Chauraha, Tiloi, Amethi | Darvaja, Khidki, Almari, Bed, Sofa</title>
+<meta name="description" content="Shabbir Furniture House, Tiloi Amethi – darvaja, khidki, almari, bed, sofa, kitchen almari aur bedroom furniture. Free demo ke liye abhi book karein.">
+
+<!-- ===== APP INSTALL (PWA) ===== -->
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#17352B">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+
+<!-- Google Fonts: Alegreya (headings) + Hind (body, Hindi/English dono) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700;800&family=Hind:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Font Awesome icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  /* ===== COLORS: yahan se poori website ke colors badal sakte hain ===== */
+  :root{
+    --brand:#17352B;      /* gehra jungle green – main color */
+    --brand-dark:#0F241D; /* footer / dark sections */
+    --accent:#D39B2F;     /* pital (brass) – buttons aur highlights */
+    --wood:#6B4423;       /* lakdi ka rang – chhote details */
+    --soft:#EEF0EC;       /* halka background */
+    --ink:#1B2420;        /* text */
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'Hind',sans-serif;color:var(--ink);background:#fff}
+  h1,h2,h3,.brand-font{font-family:'Alegreya',serif;font-weight:700}
+  .bg-brand{background:var(--brand)} .bg-brand-dark{background:var(--brand-dark)}
+  .bg-accent{background:var(--accent)} .bg-soft{background:var(--soft)}
+  .text-brand{color:var(--brand)} .text-accent{color:var(--accent)}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.4rem;border-radius:.5rem;font-weight:700;transition:transform .15s,background .15s}
+  .btn:active{transform:scale(.97)}
+  .btn-accent{background:var(--accent);color:var(--brand-dark)} .btn-accent:hover{background:#e2ac43}
+  .btn-line{border:2px solid #fff;color:#fff} .btn-line:hover{background:#fff;color:var(--brand)}
+  /* Hero background: halki lakdi ke grain jaisi lines */
+  .hero{background:
+    repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 9px),
+    repeating-linear-gradient(0deg,rgba(0,0,0,.05) 0 3px,transparent 3px 40px),
+    linear-gradient(160deg,var(--brand) 0%,var(--brand-dark) 100%)}
+  /* Hero ki yaadgaar cheez: lakdi ke planks jaisi patti */
+  .plank-strip{height:16px;background:repeating-linear-gradient(90deg,#8a5a2f 0 70px,#6B4423 70px 72px,#9a6a3a 72px 150px,#6B4423 150px 152px,#7c4f28 152px 220px,#6B4423 220px 222px)}
+  input,select,textarea{width:100%;border:1.5px solid #cdd6d1;border-radius:.5rem;padding:.7rem .9rem;background:#fff;font:inherit}
+  input:focus,select:focus,textarea:focus,a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  label{font-weight:600;font-size:.9rem;display:block;margin-bottom:.25rem}
+  .card{background:#fff;border:1px solid #d9e0db;border-radius:.9rem;padding:1.5rem}
+  .toast{display:none;margin-top:.8rem;padding:.8rem 1rem;border-radius:.5rem;font-weight:600}
+  .toast.ok{display:block;background:#dcf5e4;color:#14532d} .toast.err{display:block;background:#fde2e2;color:#7f1d1d}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur shadow-sm">
+  <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+    <a href="#home" class="brand-font text-2xl text-brand">Shabbir Furniture House</a>
+    <nav class="hidden md:flex gap-6 font-semibold">
+      <a href="#about" class="hover:text-accent">Hamare Baare Mein</a>
+      <a href="#services" class="hover:text-accent">Furniture</a>
+      <a href="#demo" class="hover:text-accent">Free Demo</a>
+      <a href="#contact" class="hover:text-accent">Sampark</a>
+    </nav>
+    <a href="tel:+919598843607" class="hidden md:inline-flex btn btn-accent !py-2"><i class="fa-solid fa-phone"></i> Call Karein</a>
+    <button id="menuBtn" class="md:hidden text-2xl text-brand" aria-label="Menu kholein"><i class="fa-solid fa-bars"></i></button>
+  </div>
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="hidden md:hidden border-t bg-white px-4 py-3 space-y-3 font-semibold">
+    <a href="#about" class="block">Hamare Baare Mein</a>
+    <a href="#services" class="block">Furniture</a>
+    <a href="#demo" class="block">Free Demo</a>
+    <a href="#contact" class="block">Sampark</a>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section id="home" class="hero text-white">
+  <div class="max-w-6xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <p class="font-semibold text-accent mb-3"><i class="fa-solid fa-location-dot"></i> Rajnagar Chauraha, Tiloi, Amethi</p>
+      <!-- Headline badalna ho to yahan change karein -->
+      <h1 class="text-4xl md:text-6xl leading-tight">Aapke ghar ke liye, <br>mazboot furniture.</h1>
+      <p class="mt-5 text-lg text-white/85 max-w-lg">Darvaja, khidki, almari, bed, sofa aur kitchen almari – aapke naap aur pasand ke hisaab se, sahi daam par.</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="#demo" class="btn btn-accent"><i class="fa-solid fa-calendar-check"></i> Free Demo Book Karein</a>
+        <a href="https://wa.me/919598843607?text=Namaste%20Shabbir%20Furniture%20House%2C%20mujhe%20furniture%20ke%20baare%20mein%20jaankari%20chahiye." target="_blank" rel="noopener" class="btn btn-line"><i class="fa-brands fa-whatsapp"></i> WhatsApp Karein</a>
+      </div>
+    </div>
+    <!-- Hero ke side mein chhota info box -->
+    <div class="bg-white/10 border border-white/20 rounded-2xl p-6 space-y-4">
+      <div class="flex gap-4 items-start"><i class="fa-solid fa-ruler-combined text-accent text-2xl mt-1"></i><div><h3 class="text-xl">Aapke naap ka kaam</h3><p class="text-white/80">Kamre ke size ke hisaab se banwayein.</p></div></div>
+      <div class="flex gap-4 items-start"><i class="fa-solid fa-tree text-accent text-2xl mt-1"></i><div><h3 class="text-xl">Pakki lakdi, pakka kaam</h3><p class="text-white/80">Mazboot joint aur saaf finishing.</p></div></div>
+      <div class="flex gap-4 items-start"><i class="fa-solid fa-indian-rupee-sign text-accent text-2xl mt-1"></i><div><h3 class="text-xl">Pehle daam, phir kaam</h3><p class="text-white/80">Free demo mein sab kuch saaf bataya jaata hai.</p></div></div>
+    </div>
+  </div>
+  <div class="plank-strip"></div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section id="about" class="py-16 bg-white">
+  <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <h2 class="text-3xl md:text-4xl text-brand">Tiloi ka apna furniture ghar</h2>
+      <p class="mt-4 text-lg leading-relaxed">Shabbir Furniture House mein aapko ghar ka har zaroori furniture milta hai, ready-made bhi aur aapki pasand ke design mein banwaya hua bhi. Hum chahte hain ki aapka furniture sirf sundar na ho, balki saalon saal chale.</p>
+      <!-- Apne hisaab se sach likhein: saal, grahak ginti, etc. -->
+      <ul class="mt-6 space-y-3">
+        <li><i class="fa-solid fa-circle-check text-accent mr-2"></i>Naye ghar, shaadi aur renovation ke liye</li>
+        <li><i class="fa-solid fa-circle-check text-accent mr-2"></i>Design aur size apni pasand ka</li>
+        <li><i class="fa-solid fa-circle-check text-accent mr-2"></i>Free demo: dekhein, naapein, phir faisla karein</li>
+      </ul>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="card text-center"><i class="fa-solid fa-store text-3xl text-brand"></i><p class="mt-2 font-bold">Showroom</p><p class="text-sm text-slate-600">Rajnagar Chauraha, Tiloi</p></div>
+      <div class="card text-center"><i class="fa-solid fa-hammer text-3xl text-brand"></i><p class="mt-2 font-bold">Custom kaam</p><p class="text-sm text-slate-600">Aapke design ke mutabik</p></div>
+      <div class="card text-center"><i class="fa-solid fa-handshake text-3xl text-brand"></i><p class="mt-2 font-bold">Bharosa</p><p class="text-sm text-slate-600">Saaf baat, sahi daam</p></div>
+      <div class="card text-center"><i class="fa-brands fa-whatsapp text-3xl text-brand"></i><p class="mt-2 font-bold">WhatsApp par poochhein</p><p class="text-sm text-slate-600">Photo bhej kar design batayein</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICES / PRODUCTS ===================== -->
+<section id="services" class="py-16 bg-soft">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl text-brand text-center">Hamara Furniture</h2>
+    <p class="text-center mt-2 text-slate-600">Naya item jodna ho to kisi bhi card ko copy-paste kar dein.</p>
+    <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      <!-- ===== CARD (copy karke naya product jodein) ===== -->
+      <div class="card"><div class="w-12 h-12 rounded-xl bg-brand text-accent flex items-center justify-center text-xl"><i class="fa-solid fa-door-closed"></i></div>
+        <h3 class="text-2xl mt-4">Darvaja</h3><p class="mt-1 text-slate-600">Ghar ke liye mazboot lakdi ke darvaje, alag-alag design mein.</p></div>
+      <div class="card"><div class="w-12 h-12 rounded-xl bg-brand text-accent flex items-center justify-center text-xl"><i class="fa-regular fa-window-maximize"></i></div>
+        <h3 class="text-2xl mt-4">Khidki</h3><p class="mt-1 text-slate-600">Aapke naap ki khidkiyan, hawa aur roshni ke hisaab se.</p></div>
+      <div class="card"><div class="w-12 h-12 rounded-xl bg-brand text-accent flex items-center justify-center text-xl"><i class="fa-solid fa-box-archive"></i></div>
+        <h3 class="text-2xl mt-4">Almari</h3><p class="mt-1 text-slate-600">Kapde aur saamaan rakhne ki badi, mazboot almariyan.</p></div>
+      <div class="card"><div class="w-12 h-12 rounded-xl bg-brand text-accent flex items-center justify-center text-xl"><i class="fa-solid fa-bed"></i></div>
+        <h3 class="text-2xl mt-4">Bed aur Bedroom Set</h3><p class="mt-1 text-slate-600">Bed, dressing aur side table, poore bedroom ka furniture.</p></div>
+      <div class="card"><div class="w-12 h-12 rounded-xl bg-brand text-accent flex items-center justify-center text-xl"><i class="fa-solid fa-couch"></i></div>
+        <h3 class="text-2xl mt-4">Sofa</h3><p class="mt-1 text-slate-600">Aaramdayak sofa set, aapke drawing room ke liye.</p></div>
+      <div class="card"><div class="w-12 h-12 rounded-xl bg-brand text-accent flex items-center justify-center text-xl"><i class="fa-solid fa-kitchen-set"></i></div>
+        <h3 class="text-2xl mt-4">Kitchen Almari</h3><p class="mt-1 text-slate-600">Rasoi ke hisaab se banayi gayi kitchen almari aur cabinet.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FREE DEMO BOOKING ===================== -->
+<section id="demo" class="py-16 bg-brand text-white">
+  <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-start">
+    <div>
+      <h2 class="text-3xl md:text-4xl">Free Demo Book Karein</h2>
+      <p class="mt-4 text-lg text-white/85">Apna din aur samay chuniye. Hum aapko furniture ke samples, designs aur daam dikhayenge, aur zaroorat ho to naap ke liye bhi baat karenge. Koi charge nahi.</p>
+      <ul class="mt-6 space-y-2 text-white/90">
+        <li><i class="fa-solid fa-check text-accent mr-2"></i>Designs aur samples dekhein</li>
+        <li><i class="fa-solid fa-check text-accent mr-2"></i>Daam pehle hi saaf bataya jayega</li>
+        <li><i class="fa-solid fa-check text-accent mr-2"></i>Confirmation call ya WhatsApp par</li>
+      </ul>
+    </div>
+    <form id="demoForm" class="bg-white text-slate-900 rounded-2xl p-6 space-y-4" novalidate>
+      <!-- Web3Forms hidden fields: access_key neeche script mein ek hi jagah set hai -->
+      <input type="hidden" name="subject" value="Naya Free Demo Booking – Shabbir Furniture House">
+      <input type="checkbox" name="botcheck" class="hidden" style="display:none"> <!-- spam se bachav -->
+      <div><label for="d_name">Aapka naam</label><input id="d_name" name="name" required autocomplete="name"></div>
+      <div><label for="d_phone">Phone number</label><input id="d_phone" name="phone" type="tel" required inputmode="numeric" pattern="[0-9]{10}" placeholder="10 digit number" autocomplete="tel"></div>
+      <div class="grid grid-cols-2 gap-3">
+        <div><label for="d_date">Tareekh</label><input id="d_date" name="date" type="date" required></div>
+        <div><label for="d_time">Samay</label>
+          <select id="d_time" name="time" required>
+            <option value="">Chunein</option><option>10:00 AM</option><option>12:00 PM</option><option>2:00 PM</option><option>4:00 PM</option><option>6:00 PM</option><option>8:00 PM</option>
+          </select></div>
+      </div>
+      <div><label for="d_item">Kya dekhna chahte hain?</label>
+        <select id="d_item" name="interest" required>
+          <option value="">Chunein</option><option>Darvaja</option><option>Khidki</option><option>Almari</option><option>Bed / Bedroom Set</option><option>Sofa</option><option>Kitchen Almari</option><option>Kuch aur</option>
+        </select></div>
+      <button type="submit" class="btn btn-accent w-full justify-center"><i class="fa-solid fa-calendar-check"></i> Demo Book Karein</button>
+      <div class="toast" id="demoMsg" role="status"></div>
+    </form>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section id="contact" class="py-16 bg-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl text-brand text-center">Humse Sampark Karein</h2>
+    <div class="mt-10 grid md:grid-cols-2 gap-8">
+      <div class="space-y-4">
+        <div class="card flex gap-4 items-start"><i class="fa-solid fa-location-dot text-brand text-xl mt-1"></i><div><p class="font-bold">Pata</p><p>Rajnagar Chauraha, Tiloi, Amethi, Uttar Pradesh</p>
+          <a class="text-brand underline font-semibold" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Rajnagar+Chauraha+Tiloi+Amethi+Uttar+Pradesh">Google Maps par dekhein</a></div></div>
+        <div class="card flex gap-4 items-start"><i class="fa-solid fa-phone text-brand text-xl mt-1"></i><div><p class="font-bold">Phone</p><a href="tel:+919598843607" class="underline">9598843607</a></div></div>
+        <div class="card flex gap-4 items-start"><i class="fa-solid fa-envelope text-brand text-xl mt-1"></i><div><p class="font-bold">Email</p><a href="mailto:gujjarsabbeer@gmail.com" class="underline break-all">gujjarsabbeer@gmail.com</a></div></div>
+        <a href="https://wa.me/919598843607?text=Namaste%20Shabbir%20Furniture%20House" target="_blank" rel="noopener" class="btn w-full justify-center text-white" style="background:#1FA855"><i class="fa-brands fa-whatsapp text-xl"></i> WhatsApp par baat karein</a>
+      </div>
+
+      <form id="contactForm" class="card space-y-4" novalidate>
+        <input type="hidden" name="subject" value="Naya Message – Shabbir Furniture House Website">
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+        <div><label for="c_name">Aapka naam</label><input id="c_name" name="name" required autocomplete="name"></div>
+        <div><label for="c_phone">Phone number</label><input id="c_phone" name="phone" type="tel" required inputmode="numeric" pattern="[0-9]{10}" autocomplete="tel"></div>
+        <div><label for="c_msg">Aapka sandesh</label><textarea id="c_msg" name="message" rows="4" required></textarea></div>
+        <button type="submit" class="btn bg-brand text-white w-full justify-center"><i class="fa-solid fa-paper-plane"></i> Message Bhejein</button>
+        <div class="toast" id="contactMsg" role="status"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="bg-brand-dark text-white/80">
+  <div class="plank-strip"></div>
+  <div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-6">
+    <div><p class="brand-font text-2xl text-white">Shabbir Furniture House</p><p class="mt-2 text-sm">Darvaja, khidki, almari, bed, sofa, kitchen almari aur bedroom furniture.</p></div>
+    <div><p class="font-bold text-white">Jaldi links</p>
+      <ul class="mt-2 space-y-1 text-sm"><li><a href="#about">Hamare Baare Mein</a></li><li><a href="#services">Furniture</a></li><li><a href="#demo">Free Demo</a></li><li><a href="#contact">Sampark</a></li></ul></div>
+    <div><p class="font-bold text-white">Showroom</p><p class="mt-2 text-sm">Rajnagar Chauraha, Tiloi, Amethi, UP<br>9598843607</p></div>
+  </div>
+  <p class="text-center text-xs pb-6">© <span id="year"></span> Shabbir Furniture House. Sabhi adhikar surakshit.</p>
+</footer>
+
+<!-- Website banwane wala footer -->
+<footer style="text-align:center; padding:20px; background:#111; color:#fff;">
+  <p style="margin:0 0 12px;">वेबसाइट बनवानी है? संपर्क करें</p>
+  <a href="https://wa.me/919598378582?text=नमस्ते,%20मुझे%20वेबसाइट%20बनवानी%20है"
+     target="_blank" rel="noopener"
+     style="display:inline-block; background:#25D366; color:#fff; padding:10px 20px; border-radius:8px; font-weight:bold; text-decoration:none;">
+    💬 WhatsApp पर संपर्क करें
+  </a>
+</footer>
+
+<!-- Floating WhatsApp button (har screen par dikhega) -->
+<a href="https://wa.me/919598843607?text=Namaste%20Shabbir%20Furniture%20House" target="_blank" rel="noopener" aria-label="WhatsApp par chat karein"
+   class="fixed bottom-5 right-5 z-50 w-14 h-14 rounded-full flex items-center justify-center text-white text-3xl shadow-lg" style="background:#1FA855">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<!-- ===================== APP INSTALL BUTTONS (neeche baayein) ===================== -->
+<!-- DOWNLOAD BUTTON -->
+<div class="fixed bottom-5 left-5 z-50">
+  <a href="https://www.mediafire.com/file/3ui46bwax7zppos/_Sabbir_Shop_20385758.apk/file"
+     style="display:inline-block; padding:12px 28px; background:#2563eb; color:#fff; text-decoration:none; border-radius:8px; font-weight:600;">
+     Download Now
+  </a>
+</div>
+</a>
+</div>
+
+<script>
+  /* ===== SETTINGS: yahan sirf apni details badlein ===== */
+  const WEB3FORMS_KEY = "365760f6-80ac-4d94-a5aa-3a8b13214cd3"; // <-- web3forms.com se mili asli Access Key yahan paste karein
+
+  /* APK ki file ka naam. PWABuilder se APK banane ke baad usse site folder mein rakhein
+     aur yahan uska naam likhein, jaise "shabbir-furniture.apk".
+     Khaali ("") chhodne par APK Download button nahi dikhega. */
+  const APK_FILE = "";https://appsgeyser.io/20385758/Sabbir Shop
+
+  // Mobile menu
+  const menu = document.getElementById('mobileMenu');
+  document.getElementById('menuBtn').addEventListener('click', () => menu.classList.toggle('hidden'));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.add('hidden')));
+
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Demo form mein aaj se pehle ki tareekh na chuni ja sake
+  document.getElementById('d_date').min = new Date().toISOString().split('T')[0];
+
+  // Dono forms ko Web3Forms par bhejne ka common function
+  function handleForm(formId, msgId, successText) {
+    const form = document.getElementById(formId);
+    const msg = document.getElementById(msgId);
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      msg.className = 'toast';
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      const btn = form.querySelector('button[type=submit]');
+      const original = btn.innerHTML;
+      btn.disabled = true; btn.innerHTML = 'Bhej rahe hain...';
+      const data = new FormData(form);
+      data.append('access_key', WEB3FORMS_KEY);
+      data.append('from_name', 'Shabbir Furniture House Website');
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+        const json = await res.json();
+        if (json.success) { msg.textContent = successText; msg.className = 'toast ok'; form.reset(); }
+        else { throw new Error(json.message); }
+      } catch (err) {
+        msg.textContent = 'Message nahi ja paya. Kripya 9598843607 par call ya WhatsApp karein.';
+        msg.className = 'toast err';
+      } finally { btn.disabled = false; btn.innerHTML = original; }
+    });
+  }
+  handleForm('demoForm', 'demoMsg', 'Dhanyavaad! Aapka demo book ho gaya. Hum jald hi aapse sampark karenge.');
+  handleForm('contactForm', 'contactMsg', 'Dhanyavaad! Aapka message mil gaya hai. Hum jald jawab denge.');
+
+  /* ===== APP INSTALL (PWA) ===== */
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+  }
+
+  const installBox = document.getElementById('installBox');
+  const installBtn = document.getElementById('installBtn');
+  const apkBtn = document.getElementById('apkBtn');
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  let deferredPrompt = null;
+
+  function showInstallBox() { installBox.classList.remove('hidden'); }
+
+  // App pehle se khuli hai (installed) to koi button nahi dikhana
+  if (!isStandalone) {
+    // APK download button
+    if (APK_FILE) {
+      apkBtn.href = APK_FILE;
+      apkBtn.classList.remove('hidden');
+      showInstallBox();
+    }
+    // Android / Chrome: asli install prompt
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installBtn.classList.remove('hidden');
+      showInstallBox();
+    });
+    // iPhone: Safari mein prompt nahi hota, isliye tareeka bata denge
+    if (isIOS) {
+      installBtn.classList.remove('hidden');
+      showInstallBox();
+    }
+  }
+
+  installBtn.addEventListener('click', async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      await deferredPrompt.userChoice;
+      deferredPrompt = null;
+      installBtn.classList.add('hidden');
+    } else if (isIOS) {
+      alert('iPhone mein install karne ke liye: Safari ke neeche "Share" button dabayein, phir "Add to Home Screen" chunein.');
+    }
+  });
+
+  window.addEventListener('appinstalled', () => {
+    installBtn.classList.add('hidden');
+    if (!APK_FILE) installBox.classList.add('hidden');
+  });
+</script>
+</body>
+</html>
